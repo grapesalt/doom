@@ -1,16 +1,46 @@
+#+title: Doom Emacs Configuration
+
+As you can see this is a really really minimal config for doom. It gets the job done and has all the features I could possibly need.
+
+* User config
+Add your details, useful for magit and stuff
+
+#+begin_src emacs-lisp
 ;;; $DOOMDIR/config.el -*- lexical-binding: t; -*-
 
 (setq user-full-name "Aditya Chaturvedi"
       user-mail-address "aditya.chaturvedi1608@gmail.com")
+#+end_src
 
+* UI
+** Font
+I really like [[https://rubjo.github.io/victor-mono/][Victor Mono]] now days.
+
+#+begin_src emacs-lisp
 (setq doom-font (font-spec :family "VictorMono Nerd Font" :size 15))
+#+end_src
 
+** Theme
+Almost all my things are nord themed
+#+begin_src emacs-lisp
 (setq doom-theme 'doom-nord)
+#+end_src
 
+** Misc
+Relative lines are really useful.
+#+begin_src emacs-lisp
 (setq display-line-numbers-type 'relative)
+#+end_src
 
+* Org
+Set the directory for org
+#+begin_src emacs-lisp
 (setq org-directory "~/docs/org")
+#+end_src
 
+* AI related tools
+I use copilot and gptel for most of my AI /needs/. Honestly get's the job done really well. I'm gonna get some package for "agent mode", but so far I've not really needed it.
+#+begin_src emacs-lisp
 ;; Copilot configuration
 (use-package! copilot
   :hook (prog-mode . copilot-mode)
@@ -36,3 +66,4 @@
         gptel-include-tool-results 'auto
         ;; gptel--system-message (concat gptel--system-message "")
         gptel-backend (gptel-make-gh-copilot "Copilot" :stream t)))
+#+end_src
